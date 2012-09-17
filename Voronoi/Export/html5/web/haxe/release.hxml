@@ -1,0 +1,9 @@
+-main ApplicationMain 
+-D nme_install_tool
+-cp Source
+-lib nme
+-D web
+-js Export/html5/web/bin/VoronoiDashboard.js
+-cp Export/html5/web/haxe
+--remap flash:nme
+--js-modern

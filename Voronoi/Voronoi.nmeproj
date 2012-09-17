@@ -108,13 +108,13 @@
     <Compile Include="Source\prototypes\noisy_line.hx" />
     <Compile Include="Source\prototypes\quadrilateral_drainage_basin.hx" />
     <Compile Include="Source\Lava.hx" />
-    <Compile Include="Source\Map.hx" />
     <Compile Include="Source\NoisyEdges.hx" />
     <Compile Include="Source\Roads.hx" />
     <Compile Include="Source\RoadsSpanningTree.hx" />
     <Compile Include="Source\Watersheds.hx" />
     <Compile Include="Source\Size.hx" />
     <Compile Include="Source\NullHelper.hx" />
+    <Compile Include="Source\Map.hx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\com\" />

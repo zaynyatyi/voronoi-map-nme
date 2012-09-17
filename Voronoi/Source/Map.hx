@@ -7,19 +7,19 @@ package;
 import graph.Center;
 import graph.Corner;
 import graph.Edge;
-//import flash.geom.*;
-//import flash.utils.Dictionary;
+import nme.Lib;
 import nme.ObjectHash;
 import nme.geom.Point;
 import nme.geom.Rectangle;
-//import flash.utils.getTimer;
-//import flash.system.System;
 import com.nodename.geom.LineSegment;
 import com.nodename.delaunay.Voronoi;
 import de.polygonal.math.PM_PRNG;
 
 class Map {
-    static public var NUM_POINTS:Int=2000;
+    static public var NUM_POINTS:Int=NUM_ROWS*NUM_COLUMNS;
+    static public var NUM_ROWS:Int = 40;
+    static public var NUM_COLUMNS:Int = 50;
+    //static public var NUM_POINTS:Int=20;
     static public var LAKE_THRESHOLD:Float=0.3;// 0 to 1, fraction of water corners for water polygon
     static public var NUM_LLOYD_ITERATIONS:Int=2;
 
@@ -59,9 +59,9 @@ class Map {
         	case 'Perlin':
         		islandShape=IslandShape.makePerlin(seed);
         	case 'Square':
-        		islandShape=IslandShape.makePerlin(seed);
+        		islandShape=IslandShape.makeSquare(seed);
         	case 'Blob':
-        		islandShape=IslandShape.makePerlin(seed);
+        		islandShape=IslandShape.makeBlob(seed);
         	default:
         		islandShape=IslandShape.makePerlin(seed);
         }
@@ -125,12 +125,14 @@ class Map {
             (["Place points...",
              function():Void {
              reset();
+             Lib.trace('generating random points');
              points=generateRandomPoints();
              }]);
 
         stages.push
             (["Improve points...",
              function():Void {
+             Lib.trace('improving points');
              improveRandomPoints(points);
              }]);
 
@@ -145,6 +147,7 @@ class Map {
         stages.push
             (["Build graph...",
              function():Void {
+             Lib.trace('building graph');
              var voronoi:Voronoi=new Voronoi(points, null, new Rectangle(0, 0, SIZE.width, SIZE.height));
              buildGraph(points, voronoi);
              improveCorners();
@@ -156,6 +159,7 @@ class Map {
         stages.push
             (["Assign elevations...",
              function():Void {
+             Lib.trace('assigning elevations');
              // Determine the elevations and water at Voronoi corners.
              assignCornerElevations();
 
@@ -172,10 +176,12 @@ class Map {
              redistributeElevations(landCorners(corners));
 
              // Assign elevations to non-land corners
-             for(q in corners){
-             if(q.ocean || q.coast){
-             q.elevation=0.0;
-             }
+             for(q in corners)
+             {
+	             if(q.ocean || q.coast)
+	             {
+	             	q.elevation=0.0;
+	             }
              }
 
              // Polygon elevations are the average of their corners
@@ -186,6 +192,7 @@ class Map {
         stages.push
             (["Assign moisture...",
              function():Void {
+             Lib.trace('assigning moisture');
              // Determine downslope paths.
              calculateDownslopes();
 
@@ -209,6 +216,7 @@ class Map {
         stages.push
             (["Decorate map...",
              function():Void {
+             Lib.trace('decorating map');
              assignBiomes();
              }]);
 
@@ -224,10 +232,20 @@ class Map {
     // connected to ocean.
     public function generateRandomPoints():Array<Point>{
         var p:Point, i:Int, points:Array<Point>=new Array<Point>();
-        for(i in 0...NUM_POINTS){
-            p=new Point(mapRandom.nextDoubleRange(10, SIZE.width-10),
-                    mapRandom.nextDoubleRange(10, SIZE.height-10));
-            points.push(p);
+        var h_step:Int = Math.ceil(SIZE.width/NUM_COLUMNS);
+        var v_step:Int = Math.ceil(SIZE.height/NUM_ROWS);
+        var odd:Bool = true;
+        for(i in 0...NUM_COLUMNS)
+ 		{
+        	for(j in 0...NUM_ROWS)
+        	{
+        		odd = !odd;
+        		//for(i in 0...NUM_POINTS){
+	            p=new Point(mapRandom.nextDoubleRange(10, h_step) + h_step*i + (odd ? h_step/2 : 0),
+	                    mapRandom.nextDoubleRange(10, v_step) + v_step*j);
+	            points.push(p);
+        	}
+        	
         }
         return points;
     }
@@ -235,6 +253,7 @@ class Map {
 
     // Improve the random set of points with Lloyd Relaxation.
     public function improveRandomPoints(points:Array<Point>):Void {
+    	return;
         // We'd really like to generate "blue noise". Algorithms:
         // 1. Poisson dart throwing:check each new point against all
         //	 existing points, and reject it if it's too close.
@@ -246,19 +265,27 @@ class Map {
         // Option 3 is implemented here. If it's run for too many iterations,
         // it will turn Into a grid, but convergence is very slow, and we only
         // run it a few times.
-        var i:Int, p:Point, q:Point, voronoi:Voronoi, region:Array<Point>;
+        var i:Int, voronoi:Voronoi, region:Array<Point>, tmp_p:Point = new Point();
         for(i in 0...NUM_LLOYD_ITERATIONS){
             voronoi=new Voronoi(points, null, new Rectangle(0, 0, SIZE.width, SIZE.height));
             for(p in points){
+            	//Lib.trace('original point ' + Std.string(p.x) + ' ' + Std.string(p.y));
                 region=voronoi.region(p);
+                
+                if(region.length == 0)
+                {
+                	//Lib.trace('region length is null');
+                	continue;
+                }
                 p.x=0.0;
                 p.y=0.0;
                 for(q in region){
                     p.x +=q.x;
                     p.y +=q.y;
                 }
-                p.x /=region.length;
-                p.y /=region.length;
+                tmp_p.x = tmp_p.x / region.length;
+                tmp_p.y = tmp_p.x / region.length;
+                //Lib.trace('modified point ' + Std.string(tmp_p.x) + ' ' + Std.string(tmp_p.y));
                 region.splice(0, region.length);
             }
             voronoi.dispose();
@@ -588,7 +615,7 @@ class Map {
                     numWater +=1;
                 }
             }
-            p.water=(p.ocean || numWater>=p.corners.length * LAKE_THRESHOLD);
+            p.water=(p.ocean || (numWater>=p.corners.length * LAKE_THRESHOLD));
         }
         while(queue.length>0){
             p=queue.shift();
@@ -621,10 +648,13 @@ class Map {
         for(q in corners){
             var numOcean:Int=0;
             var numLand:Int=0;
+            //Lib.trace('new corner');
             for(p in q.touches){
-                numOcean += r.ocean ? 1 : 0;
-                numLand += !r.water ? 1 : 0;
+            	//Lib.trace(Std.string(r.ocean) + Std.string(!r.water));
+                numOcean += p.ocean ? 1 : 0;
+                numLand += !p.water ? 1 : 0;
             }
+            //Lib.trace(Std.string(numOcean) + Std.string(numOcean) + 'endup');
             q.ocean=(numOcean==q.touches.length);
             q.coast=(numOcean>0)&&(numLand>0);
             q.water=q.border ||((numLand !=q.touches.length)&& !q.coast);
@@ -706,22 +736,33 @@ class Map {
     // move downslope. Mark the edges and corners as rivers.
     public function createRivers():Void {
         //riverChance = riverChance.coalesce(Std.int((SIZE.width + SIZE.height) / 4));
+		//return;
 		
 		var i:Int, q:Corner, edge:Edge;
       
-		for (i in 0...Math.ceil(SIZE.width/2)) {
+		for (i in 0...50) {
             q=corners[mapRandom.nextIntRange(0, corners.length-1)];
-            if(q.ocean || q.elevation<0.3 || q.elevation>0.9)continue;
-            // Bias rivers to go west:if(q.downslope.x>q.x)continue;
-            while(!q.coast){
-                if(q==q.downslope){
-                    break;
-                }
-                edge=lookupEdgeFromCorner(q, q.downslope);
-                edge.river=edge.river + 1;
-                q.river=((NullHelper.IsNull(q.river)) ? 0 : q.river)+ 1;
-                q.downslope.river=((NullHelper.IsNull(q.downslope.river)) ? 0 : q.downslope.river)+ 1;// TODO:fix double count
-                q=q.downslope;
+            //Lib.trace(q.ocean);
+            //Lib.trace(q.elevation);
+            if(NullHelper.IsNotNull(q))
+            {
+            //if(NullHelper.IsNotNull(q.ocean) && NullHelper.IsNotNull(q.elevation))
+            //{  
+            
+              if(q.ocean || q.water || q.elevation<0.3 || q.elevation>0.9)
+              	continue;
+	            // Bias rivers to go west:if(q.downslope.x>q.x)continue;
+	            while(!q.coast){
+	                if(q==q.downslope){
+	                    break;
+	                }
+	                edge=lookupEdgeFromCorner(q, q.downslope);
+	                edge.river=edge.river + 1;
+	                q.river=((NullHelper.IsNull(q.river)) ? 0 : q.river)+ 1;
+	                q.downslope.river=((NullHelper.IsNull(q.downslope.river)) ? 0 : q.downslope.river)+ 1;// TODO:fix double count
+	                q=q.downslope;
+	            }
+            //}
             }
         }
     }
@@ -782,6 +823,7 @@ class Map {
     // roughly based on the Whittaker diagram but adapted to fit the
     // needs of the island map generator.
     static public function getBiome(p:Center):String {
+    	
         if(p.ocean){
             return 'OCEAN';
         } else if(p.water){

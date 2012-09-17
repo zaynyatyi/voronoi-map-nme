@@ -3,7 +3,7 @@
 -cp Source
 -lib nme
 -D web
--swf-version 10
+-swf-version 10.1
 -swf9 Export/flash/bin/VoronoiDashboard.swf
 -swf-header 800:600:30:ffffff
 -cp Export/flash/haxe

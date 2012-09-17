@@ -4,6 +4,7 @@ package com.nodename.delaunay;
 //import as3.Rectangle;
 import nme.geom.Rectangle;
 import nme.geom.Point;
+import nme.Lib;
 //import as3.TypeDefs;
 import com.nodename.geom.Polygon;
 import com.nodename.geom.Winding;
@@ -167,12 +168,15 @@ class Site implements ICoord {
 	
 	public function region(clippingBounds:Rectangle):Array<Point>
 	{
+		//Lib.trace('region called');
 		if (_edges == null || _edges.length == 0)
 		{
+			Lib.trace('empty region array');
 			return new Array<Point>();
 		}
 		if (_edgeOrientations == null)
-		{ 
+		{
+			//Lib.trace('no edge orientation');
 			reorderEdges();
 			_region = clipToBounds(clippingBounds);
 			if ((new Polygon(_region)).winding() == Winding.CLOCKWISE)
@@ -180,15 +184,16 @@ class Site implements ICoord {
 				_region.reverse();
 			}
 		}
+		//Lib.trace(_region.length);
 		return _region;
 	}
 
 	private function reorderEdges():Void
 	{
-		//trace("_edges:", _edges);
+		//Lib.trace("_edges:"+ _edges);
 		var reorderer:EdgeReorderer = new EdgeReorderer(_edges, Criterion.vertex);
 		_edges = reorderer.edges;
-		//trace("reordered:", _edges);
+		//Lib.trace("reordered:"+ _edges);
 		_edgeOrientations = reorderer.edgeOrientations;
 		reorderer.dispose();
 	}
@@ -207,6 +212,7 @@ class Site implements ICoord {
 		if (i == n)
 		{
 			// no edges visible
+			//Lib.trace('no edges visible');
 			return new Array<Point>();
 		}
 		edge = _edges[i];

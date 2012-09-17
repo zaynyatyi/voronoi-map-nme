@@ -56,7 +56,7 @@ class Edge {
 		edge.rightVertex = null;
 		
 		edge.a = a; edge.b = b; edge.c = c;
-		//trace("createBisectingEdge: a ", edge.a, "b", edge.b, "c", edge.c);
+		//Lib.trace("createBisectingEdge: a ", edge.a, "b", edge.b, "c", edge.c);
 		
 		return edge;
 	}

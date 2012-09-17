@@ -1,28 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|Flash" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Voronoi/Source/VoronoiDashboard.hx">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Voronoi/Source/Map.hx">
     <Files>
-      <File FileName="Voronoi/Source/VoronoiDashboard.hx" Line="1028" Column="17" />
-      <File FileName="Voronoi/Source/com/nodename/utils/IDisposable.hx" Line="1" Column="1" />
-      <File FileName="Voronoi/Source/com/nodename/geom/Circle.hx" Line="13" Column="36" />
-      <File FileName="Voronoi/Source/com/nodename/geom/LineSegment.hx" Line="12" Column="28" />
-      <File FileName="Voronoi/Source/com/nodename/geom/Polygon.hx" Line="4" Column="23" />
-      <File FileName="Voronoi/Source/com/nodename/geom/Winding.hx" Line="1" Column="1" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Voronoi.hx" Line="442" Column="3" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/BoundsCheck.hx" Line="38" Column="31" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Edge.hx" Line="11" Column="30" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Site.hx" Line="253" Column="22" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/ICoord.hx" Line="1" Column="1" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Vertex.hx" Line="44" Column="27" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Halfedge.hx" Line="1" Column="1" />
-      <File FileName="Voronoi/Source/de/polygonal/math/PM_PRNG.hx" Line="27" Column="26" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/SiteList.hx" Line="6" Column="23" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/HalfedgePriorityQueue.hx" Line="127" Column="50" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/EdgeList.hx" Line="4" Column="1" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Delaunay.hx" Line="38" Column="40" />
-      <File FileName="Voronoi/Source/com/nodename/delaunay/Kruskal.hx" Line="5" Column="23" />
-      <File FileName="Voronoi/Voronoi.nmml" Line="5" Column="29" />
-      <File FileName="Voronoi/Source/Map.hx" Line="321" Column="44" />
+      <File FileName="Voronoi/Source/VoronoiDashboard.hx" Line="140" Column="5" />
+      <File FileName="Voronoi/Source/NullHelper.hx" Line="16" Column="13" />
+      <File FileName="Voronoi/Source/graph/Corner.hx" Line="1" Column="1" />
+      <File FileName="Voronoi/Source/com/nodename/delaunay/Voronoi.hx" Line="122" Column="6" />
+      <File FileName="Voronoi/Source/Map.hx" Line="244" Column="62" />
+      <File FileName="Voronoi/Source/com/nodename/delaunay/Site.hx" Line="215" Column="6" />
+      <File FileName="Voronoi/Source/graph/Edge.hx" Line="1" Column="1" />
+      <File FileName="Voronoi/Source/com/nodename/delaunay/LR.hx" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

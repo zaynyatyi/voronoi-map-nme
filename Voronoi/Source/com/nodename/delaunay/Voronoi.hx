@@ -5,6 +5,7 @@ import nme.geom.Rectangle;
 import nme.geom.Point;
 import nme.display.BitmapData;
 import nme.ObjectHash;
+import nme.Lib;
 //import as3.TypeDefs;
 import com.nodename.delaunay.EdgeReorderer;
 import com.nodename.geom.Circle;
@@ -66,6 +67,7 @@ class Voronoi {
 		_sites = new SiteList();
 		_sitesIndexedByLocation = new ObjectHash();
 		addSites(points, colors);
+		Lib.trace(_sitesIndexedByLocation.count());
 		this.plotBounds = plotBounds;
 		_triangles = new Array<Triangle>();
 		_edges = new Array<Edge>();
@@ -112,9 +114,12 @@ class Voronoi {
 	
 	public function region(p:Point):Array<Point>
 	{
+		//Lib.trace(p);
 		var site:Site = _sitesIndexedByLocation.get(p);
+		//Lib.trace(site);
 		if (site == null)
 		{
+			//Lib.trace('site is null');
 			return new Array<Point>();
 		}
 		return site.region(plotBounds);
@@ -288,20 +293,20 @@ class Voronoi {
 			&&  (heap.empty() || comparePointByYThenX(newSite, newintstar) < 0))
 			{
 				/* new site is smallest */
-				//trace("smallest: new site " + newSite);
+				//Lib.trace("smallest: new site " + newSite);
 				
 				// Step 8:
 				lbnd = edgeList.edgeListLeftNeighbor(newSite.coord);	// the Halfedge just to the left of newSite
-				//trace("lbnd: " + lbnd);
+				//Lib.trace("lbnd: " + lbnd);
 				rbnd = lbnd.edgeListRightNeighbor;		// the Halfedge just to the right
-				//trace("rbnd: " + rbnd);
+				//Lib.trace("rbnd: " + rbnd);
 				bottomSite = rightRegion(lbnd);		// this is the same as leftRegion(rbnd)
 				// this Site determines the region containing the new site
-				//trace("new Site is in region of existing site: " + bottomSite);
+				//Lib.trace("new Site is in region of existing site: " + bottomSite);
 				
 				// Step 9:
 				edge = Edge.createBisectingEdge(bottomSite, newSite);
-				//trace("new edge: " + edge);
+				//Lib.trace("new edge: " + edge);
 				_edges.push(edge);
 				
 				bisector = Halfedge.create(edge, LR.LEFT);
@@ -311,7 +316,8 @@ class Voronoi {
 				edgeList.insert(lbnd, bisector);
 				
 				// first half of Step 11:
-				if ((vertex = Vertex.intersect(lbnd, bisector)) != null) 
+				vertex = Vertex.intersect(lbnd, bisector);
+				if (vertex != null) 
 				{
 					vertices.push(vertex);
 					heap.remove(lbnd);
@@ -328,7 +334,8 @@ class Voronoi {
 				edgeList.insert(lbnd, bisector);
 				
 				// second half of Step 11:
-				if ((vertex = Vertex.intersect(bisector, rbnd)) != null)
+				vertex = Vertex.intersect(bisector, rbnd);
+				if (vertex != null)
 				{
 					vertices.push(vertex);
 					bisector.vertex = vertex;
