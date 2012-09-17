@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{319CB2C6-23BD-43E1-85B5-2AAFA3577041}") = "Voronoi", "Voronoi\Voronoi.nmeproj", "{AF19CE26-57A4-465E-A510-D63BC461A460}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Android = Debug|Android
+		Debug|BlackBerry = Debug|BlackBerry
+		Debug|Flash = Debug|Flash
+		Debug|HTML5 = Debug|HTML5
+		Debug|iOS = Debug|iOS
+		Debug|Linux = Debug|Linux
+		Debug|Mac = Debug|Mac
+		Debug|webOS = Debug|webOS
+		Debug|Windows = Debug|Windows
+		Release|Android = Release|Android
+		Release|BlackBerry = Release|BlackBerry
+		Release|Flash = Release|Flash
+		Release|HTML5 = Release|HTML5
+		Release|iOS = Release|iOS
+		Release|Linux = Release|Linux
+		Release|Mac = Release|Mac
+		Release|webOS = Release|webOS
+		Release|Windows = Release|Windows
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Android.ActiveCfg = Debug|Android
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Android.Build.0 = Debug|Android
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|BlackBerry.ActiveCfg = Debug|BlackBerry
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|BlackBerry.Build.0 = Debug|BlackBerry
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Flash.ActiveCfg = Debug|Flash
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Flash.Build.0 = Debug|Flash
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|HTML5.ActiveCfg = Debug|HTML5
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|HTML5.Build.0 = Debug|HTML5
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|iOS.ActiveCfg = Debug|iOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|iOS.Build.0 = Debug|iOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Linux.ActiveCfg = Debug|Linux
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Linux.Build.0 = Debug|Linux
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Mac.ActiveCfg = Debug|Mac
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Mac.Build.0 = Debug|Mac
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|webOS.ActiveCfg = Debug|webOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|webOS.Build.0 = Debug|webOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Windows.ActiveCfg = Debug|Windows
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Debug|Windows.Build.0 = Debug|Windows
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Android.ActiveCfg = Release|Android
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Android.Build.0 = Release|Android
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|BlackBerry.ActiveCfg = Release|BlackBerry
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|BlackBerry.Build.0 = Release|BlackBerry
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Flash.ActiveCfg = Release|Flash
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Flash.Build.0 = Release|Flash
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|HTML5.ActiveCfg = Release|HTML5
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|HTML5.Build.0 = Release|HTML5
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|iOS.ActiveCfg = Release|iOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|iOS.Build.0 = Release|iOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Linux.ActiveCfg = Release|Linux
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Linux.Build.0 = Release|Linux
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Mac.ActiveCfg = Release|Mac
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Mac.Build.0 = Release|Mac
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|webOS.ActiveCfg = Release|webOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|webOS.Build.0 = Release|webOS
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Windows.ActiveCfg = Release|Windows
+		{AF19CE26-57A4-465E-A510-D63BC461A460}.Release|Windows.Build.0 = Release|Windows
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Voronoi\Voronoi.nmeproj
+	EndGlobalSection
+EndGlobal

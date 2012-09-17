@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Android</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF19CE26-57A4-465E-A510-D63BC461A460}</ProjectGuid>
+    <TargetNMMLFile>Voronoi.nmml</TargetNMMLFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Android' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|BlackBerry' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Flash' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|HTML5' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iOS' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+    <AdditionalArguments>-simulator</AdditionalArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Linux' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Mac' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|webOS' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Android' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|BlackBerry' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Flash' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|HTML5' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iOS' ">
+    <OutputPath>.</OutputPath>
+    <AdditionalArguments>-simulator</AdditionalArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Linux' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Mac' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|webOS' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Assets\nme.svg" />
+    <Compile Include="Voronoi.nmml" />
+    <Compile Include="Source\com\nodename\delaunay\BoundsCheck.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Delaunay.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Edge.hx" />
+    <Compile Include="Source\com\nodename\delaunay\EdgeList.hx" />
+    <Compile Include="Source\com\nodename\delaunay\EdgeReorderer.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Halfedge.hx" />
+    <Compile Include="Source\com\nodename\delaunay\HalfedgePriorityQueue.hx" />
+    <Compile Include="Source\com\nodename\delaunay\ICoord.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Kruskal.hx" />
+    <Compile Include="Source\com\nodename\delaunay\LR.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Node.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Site.hx" />
+    <Compile Include="Source\com\nodename\delaunay\SiteList.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Triangle.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Vertex.hx" />
+    <Compile Include="Source\com\nodename\delaunay\Voronoi.hx" />
+    <Compile Include="Source\com\nodename\geom\Circle.hx" />
+    <Compile Include="Source\com\nodename\geom\LineSegment.hx" />
+    <Compile Include="Source\com\nodename\geom\Polygon.hx" />
+    <Compile Include="Source\com\nodename\geom\Winding.hx" />
+    <Compile Include="Source\com\nodename\utils\IDisposable.hx" />
+    <Compile Include="Source\de\polygonal\math\PM_PRNG.hx" />
+    <Compile Include="Source\VoronoiDashboard.hx" />
+    <Compile Include="Source\graph\Center.hx" />
+    <Compile Include="Source\graph\Corner.hx" />
+    <Compile Include="Source\graph\Edge.hx" />
+    <Compile Include="Source\prototypes\delaunay_set.hx" />
+    <Compile Include="Source\prototypes\hexagonal_drainage_basin.hx" />
+    <Compile Include="Source\prototypes\hexagonal_grid.hx" />
+    <Compile Include="Source\prototypes\noisy_line.hx" />
+    <Compile Include="Source\prototypes\quadrilateral_drainage_basin.hx" />
+    <Compile Include="Source\Lava.hx" />
+    <Compile Include="Source\Map.hx" />
+    <Compile Include="Source\NoisyEdges.hx" />
+    <Compile Include="Source\Roads.hx" />
+    <Compile Include="Source\RoadsSpanningTree.hx" />
+    <Compile Include="Source\Watersheds.hx" />
+    <Compile Include="Source\Size.hx" />
+    <Compile Include="Source\NullHelper.hx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\com\" />
+    <Folder Include="Source\de\" />
+    <Folder Include="Source\graph\" />
+    <Folder Include="Source\prototypes\" />
+  </ItemGroup>
+</Project>
