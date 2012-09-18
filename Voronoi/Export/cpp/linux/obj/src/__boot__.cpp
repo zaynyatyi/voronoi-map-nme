@@ -105,8 +105,13 @@
 #include <com/nodename/delaunay/Edge.h>
 #include <com/nodename/delaunay/Delaunay.h>
 #include <com/nodename/delaunay/BoundsCheck.h>
+#include <co/janicek/core/math/PerlinNoise.h>
+#include <co/janicek/core/array/Array2dValueIterator.h>
+#include <co/janicek/core/array/Array2dIterator.h>
+#include <co/janicek/core/array/Array2dCore.h>
 #include <Watersheds.h>
 #include <VoronoiDashboard.h>
+#include <neash/geom/Vector3D.h>
 #include <neash/display/Sprite.h>
 #include <neash/display/DisplayObjectContainer.h>
 #include <neash/display/InteractiveObject.h>
@@ -251,8 +256,13 @@ hx::RegisterResources( hx::GetResources() );
 ::com::nodename::delaunay::Edge_obj::__register();
 ::com::nodename::delaunay::Delaunay_obj::__register();
 ::com::nodename::delaunay::BoundsCheck_obj::__register();
+::co::janicek::core::math::PerlinNoise_obj::__register();
+::co::janicek::core::array::Array2dValueIterator_obj::__register();
+::co::janicek::core::array::Array2dIterator_obj::__register();
+::co::janicek::core::array::Array2dCore_obj::__register();
 ::Watersheds_obj::__register();
 ::VoronoiDashboard_obj::__register();
+::neash::geom::Vector3D_obj::__register();
 ::neash::display::Sprite_obj::__register();
 ::neash::display::DisplayObjectContainer_obj::__register();
 ::neash::display::InteractiveObject_obj::__register();
@@ -329,8 +339,13 @@ hx::RegisterResources( hx::GetResources() );
 ::neash::display::InteractiveObject_obj::__boot();
 ::neash::display::DisplayObjectContainer_obj::__boot();
 ::neash::display::Sprite_obj::__boot();
+::neash::geom::Vector3D_obj::__boot();
 ::VoronoiDashboard_obj::__boot();
 ::Watersheds_obj::__boot();
+::co::janicek::core::array::Array2dCore_obj::__boot();
+::co::janicek::core::array::Array2dIterator_obj::__boot();
+::co::janicek::core::array::Array2dValueIterator_obj::__boot();
+::co::janicek::core::math::PerlinNoise_obj::__boot();
 ::com::nodename::delaunay::BoundsCheck_obj::__boot();
 ::com::nodename::delaunay::Delaunay_obj::__boot();
 ::com::nodename::delaunay::Edge_obj::__boot();

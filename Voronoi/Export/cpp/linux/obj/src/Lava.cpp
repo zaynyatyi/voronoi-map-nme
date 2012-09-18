@@ -6,6 +6,12 @@
 #ifndef INCLUDED_Map
 #include <Map.h>
 #endif
+#ifndef INCLUDED_graph_Center
+#include <graph/Center.h>
+#endif
+#ifndef INCLUDED_graph_Edge
+#include <graph/Edge.h>
+#endif
 
 Void Lava_obj::__construct()
 {
@@ -37,6 +43,26 @@ Void Lava_obj::createLava( ::Map map,Dynamic randomDouble){
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(map,"map");
 		HX_STACK_ARG(randomDouble,"randomDouble");
+		HX_STACK_LINE(24)
+		::graph::Edge edge;		HX_STACK_VAR(edge,"edge");
+		HX_STACK_LINE(25)
+		{
+			HX_STACK_LINE(25)
+			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
+			Array< ::graph::Edge > _g1 = map->edges;		HX_STACK_VAR(_g1,"_g1");
+			HX_STACK_LINE(25)
+			while(((_g < _g1->length))){
+				HX_STACK_LINE(25)
+				::graph::Edge edge1 = _g1->__get(_g);		HX_STACK_VAR(edge1,"edge1");
+				HX_STACK_LINE(25)
+				++(_g);
+				HX_STACK_LINE(26)
+				if (((bool((bool((bool((bool((bool((bool((bool((edge1->river == (int)0)) && bool(!(edge1->d0->water)))) && bool(!(edge1->d1->water)))) && bool((edge1->d0->elevation > 0.8)))) && bool((edge1->d1->elevation > 0.8)))) && bool((edge1->d0->moisture < 0.3)))) && bool((edge1->d1->moisture < 0.3)))) && bool((randomDouble().Cast< Float >() < ::Lava_obj::FRACTION_LAVA_FISSURES))))){
+					HX_STACK_LINE(31)
+					hx::IndexRef((this->lava).mPtr,edge1->index) = true;
+				}
+			}
+		}
 	}
 return null();
 }

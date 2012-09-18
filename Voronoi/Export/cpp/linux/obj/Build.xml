@@ -572,6 +572,7 @@
    <depend name="include/neash/display/IBitmapDrawable.h"/>
    <depend name="include/neash/geom/Point.h"/>
    <depend name="include/neash/geom/Rectangle.h"/>
+   <depend name="include/nme/Lib.h"/>
    <depend name="include/nme/ObjectHash.h"/>
   </file>
   <file name="src/com/nodename/delaunay/Vertex.cpp">
@@ -617,6 +618,7 @@
    <depend name="include/com/nodename/geom/Winding.h"/>
    <depend name="include/neash/geom/Point.h"/>
    <depend name="include/neash/geom/Rectangle.h"/>
+   <depend name="include/nme/Lib.h"/>
   </file>
   <file name="src/com/nodename/delaunay/Node.cpp">
    <depend name="include/com/nodename/delaunay/Node.h"/>
@@ -722,6 +724,23 @@
    <depend name="include/neash/geom/Point.h"/>
    <depend name="include/neash/geom/Rectangle.h"/>
   </file>
+  <file name="src/co/janicek/core/math/PerlinNoise.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/co/janicek/core/array/Array2dCore.h"/>
+   <depend name="include/co/janicek/core/math/PerlinNoise.h"/>
+  </file>
+  <file name="src/co/janicek/core/array/Array2dValueIterator.cpp">
+   <depend name="include/co/janicek/core/array/Array2dValueIterator.h"/>
+  </file>
+  <file name="src/co/janicek/core/array/Array2dIterator.cpp">
+   <depend name="include/co/janicek/core/array/Array2dIterator.h"/>
+  </file>
+  <file name="src/co/janicek/core/array/Array2dCore.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/co/janicek/core/array/Array2dCore.h"/>
+   <depend name="include/co/janicek/core/array/Array2dIterator.h"/>
+   <depend name="include/co/janicek/core/array/Array2dValueIterator.h"/>
+  </file>
   <file name="src/Watersheds.cpp">
    <depend name="include/Map.h"/>
    <depend name="include/Watersheds.h"/>
@@ -729,7 +748,9 @@
    <depend name="include/graph/Corner.h"/>
   </file>
   <file name="src/VoronoiDashboard.cpp">
+   <depend name="include/Lambda.h"/>
    <depend name="include/Lava.h"/>
+   <depend name="include/List.h"/>
    <depend name="include/Map.h"/>
    <depend name="include/NoisyEdges.h"/>
    <depend name="include/NullHelper.h"/>
@@ -742,28 +763,29 @@
    <depend name="include/graph/Center.h"/>
    <depend name="include/graph/Corner.h"/>
    <depend name="include/graph/Edge.h"/>
-   <depend name="include/haxe/Log.h"/>
-   <depend name="include/neash/display/Bitmap.h"/>
-   <depend name="include/neash/display/BitmapData.h"/>
    <depend name="include/neash/display/CapsStyle.h"/>
    <depend name="include/neash/display/DisplayObject.h"/>
    <depend name="include/neash/display/DisplayObjectContainer.h"/>
+   <depend name="include/neash/display/GradientType.h"/>
    <depend name="include/neash/display/Graphics.h"/>
    <depend name="include/neash/display/IBitmapDrawable.h"/>
    <depend name="include/neash/display/InteractiveObject.h"/>
+   <depend name="include/neash/display/InterpolationMethod.h"/>
    <depend name="include/neash/display/JointStyle.h"/>
    <depend name="include/neash/display/LineScaleMode.h"/>
    <depend name="include/neash/display/MovieClip.h"/>
-   <depend name="include/neash/display/PixelSnapping.h"/>
    <depend name="include/neash/display/Shape.h"/>
+   <depend name="include/neash/display/SpreadMethod.h"/>
    <depend name="include/neash/display/Sprite.h"/>
    <depend name="include/neash/events/EventDispatcher.h"/>
    <depend name="include/neash/events/IEventDispatcher.h"/>
-   <depend name="include/neash/geom/ColorTransform.h"/>
    <depend name="include/neash/geom/Matrix.h"/>
    <depend name="include/neash/geom/Point.h"/>
-   <depend name="include/neash/geom/Rectangle.h"/>
+   <depend name="include/neash/geom/Vector3D.h"/>
    <depend name="include/nme/Lib.h"/>
+  </file>
+  <file name="src/neash/geom/Vector3D.cpp">
+   <depend name="include/neash/geom/Vector3D.h"/>
   </file>
   <file name="src/neash/display/Sprite.cpp">
    <depend name="include/Type.h"/>
@@ -951,9 +973,9 @@
   <file name="src/IslandShape.cpp">
    <depend name="include/IslandShape.h"/>
    <depend name="include/Std.h"/>
+   <depend name="include/co/janicek/core/array/Array2dCore.h"/>
+   <depend name="include/co/janicek/core/math/PerlinNoise.h"/>
    <depend name="include/de/polygonal/math/PM_PRNG.h"/>
-   <depend name="include/neash/display/BitmapData.h"/>
-   <depend name="include/neash/display/IBitmapDrawable.h"/>
    <depend name="include/neash/geom/Point.h"/>
   </file>
   <file name="src/Map.cpp">
@@ -970,9 +992,9 @@
    <depend name="include/graph/Center.h"/>
    <depend name="include/graph/Corner.h"/>
    <depend name="include/graph/Edge.h"/>
-   <depend name="include/haxe/Log.h"/>
    <depend name="include/neash/geom/Point.h"/>
    <depend name="include/neash/geom/Rectangle.h"/>
+   <depend name="include/nme/Lib.h"/>
    <depend name="include/nme/ObjectHash.h"/>
   </file>
   <file name="src/List.cpp">
@@ -983,6 +1005,8 @@
   <file name="src/Lava.cpp">
    <depend name="include/Lava.h"/>
    <depend name="include/Map.h"/>
+   <depend name="include/graph/Center.h"/>
+   <depend name="include/graph/Edge.h"/>
   </file>
   <file name="src/Lambda.cpp">
    <depend name="include/Lambda.h"/>

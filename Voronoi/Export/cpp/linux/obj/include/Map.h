@@ -109,6 +109,8 @@ class Map_obj : public hx::Object{
 		Dynamic &islandShape_dyn() { return islandShape;}
 		Dynamic SIZE; /* REM */ 
 		static int NUM_POINTS; /* REM */ 
+		static int NUM_ROWS; /* REM */ 
+		static int NUM_COLUMNS; /* REM */ 
 		static Float LAKE_THRESHOLD; /* REM */ 
 		static int NUM_LLOYD_ITERATIONS; /* REM */ 
 		static ::String getBiome( ::graph::Center p);

@@ -115,11 +115,13 @@
     <Compile Include="Source\Size.hx" />
     <Compile Include="Source\NullHelper.hx" />
     <Compile Include="Source\Map.hx" />
+    <Compile Include="Source\co\janicek\core\math\PerlinNoise.hx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\com\" />
     <Folder Include="Source\de\" />
     <Folder Include="Source\graph\" />
     <Folder Include="Source\prototypes\" />
+    <Folder Include="Source\co\" />
   </ItemGroup>
 </Project>

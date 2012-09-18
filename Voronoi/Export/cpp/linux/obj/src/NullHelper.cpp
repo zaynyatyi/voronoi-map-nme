@@ -26,7 +26,7 @@ bool NullHelper_obj::IsNull( Dynamic e){
 	HX_STACK_PUSH("NullHelper::IsNull","NullHelper.hx",10);
 	HX_STACK_ARG(e,"e");
 	HX_STACK_LINE(10)
-	return (e != null());
+	return (e == null());
 }
 
 
@@ -36,7 +36,7 @@ bool NullHelper_obj::IsNotNull( Dynamic e){
 	HX_STACK_PUSH("NullHelper::IsNotNull","NullHelper.hx",15);
 	HX_STACK_ARG(e,"e");
 	HX_STACK_LINE(15)
-	return (e == null());
+	return (e != null());
 }
 
 

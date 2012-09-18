@@ -103,8 +103,13 @@ obj/linux-debug//src/com/nodename/utils/IDisposable.o
 obj/linux-debug//src/com/nodename/delaunay/Edge.o
 obj/linux-debug//src/com/nodename/delaunay/Delaunay.o
 obj/linux-debug//src/com/nodename/delaunay/BoundsCheck.o
+obj/linux-debug//src/co/janicek/core/math/PerlinNoise.o
+obj/linux-debug//src/co/janicek/core/array/Array2dValueIterator.o
+obj/linux-debug//src/co/janicek/core/array/Array2dIterator.o
+obj/linux-debug//src/co/janicek/core/array/Array2dCore.o
 obj/linux-debug//src/Watersheds.o
 obj/linux-debug//src/VoronoiDashboard.o
+obj/linux-debug//src/neash/geom/Vector3D.o
 obj/linux-debug//src/neash/display/Sprite.o
 obj/linux-debug//src/neash/display/DisplayObjectContainer.o
 obj/linux-debug//src/neash/display/InteractiveObject.o
